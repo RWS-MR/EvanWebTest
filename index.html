@@ -1,14 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
-    <link rel="stylesheet" href="screen.css">
-  </head>
-  <body>
-    <h1>Heading</h1>
-    <script src="index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Greek Country Club Golf</title>
+  <meta name="description" content="Greek Country Club Golf — just a couple of malakas chasing par. Watch clips, follow on socials, and partner for brand collabs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0f14;          /* deep night */
+      --panel:#0f171f;       /* dark panel */
+      --ink:#e6eef6;         /* off-white text */
+      --muted:#95a5b3;       /* muted text */
+      --aegean:#0f5d8f;      /* aegean blue */
+      --olive:#6fa36f;       /* olive green */
+      --gold:#d7b76e;        /* accent gold */
+      --line:#1e2a35;        /* subtle borders */
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink); background:radial-gradient(1200px 800px at 80% -10%, rgba(15,93,143,.25), transparent 60%),
+                        radial-gradient(1000px 600px at -10% 10%, rgba(111,163,111,.20), transparent 55%),
+                        var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1200px; margin-inline:auto; padding:24px}
+    /* Nav */
+    .nav{position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(12px); background:linear-gradient(to bottom, rgba(10,15,20,.9), rgba(10,15,20,.55)); border-bottom:1px solid var(--line)}
+    .nav .row{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:40px; height:40px; display:grid; place-items:center; border-radius:50%; background:conic-gradient(from 0deg, var(--aegean), var(--olive)); box-shadow:inset 0 0 0 2px rgba(255,255,255,.06)}
+    .logo svg{width:22px; height:22px}
+    .name{font-weight:800; letter-spacing:.1px}
+    .pill{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--line); border-radius:999px; color:var(--muted)}
+    .pill b{color:var(--ink)}
+    .nav a.cta{padding:12px 16px; background:linear-gradient(135deg,var(--aegean),var(--olive)); border-radius:10px; font-weight:600}
+    /* Hero */
+    .hero{padding:80px 24px 40px}
+    .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:28px}
+    @media (max-width:960px){.grid{grid-template-columns:1fr}}
+    h1{font-family:"Playfair Display",serif; font-size:clamp(34px,5vw,56px); line-height:1.1; margin:0 0 10px}
+    .sub{font-size:clamp(16px,2.2vw,18px); color:var(--muted); max-width:62ch}
+    .btns{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px}
+    .btn{padding:12px 16px; border-radius:12px; border:1px solid var(--line); display:inline-flex; align-items:center; gap:10px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); font-weight:600}
+    .btn.primary{background:linear-gradient(135deg,var(--aegean),var(--olive)); border-color:transparent}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .meander{--s:26px; position:relative; overflow:hidden; border-radius:var(--radius)}
+    .meander:before{content:""; position:absolute; inset:-2px; padding:2px; background:
+      conic-gradient(from 0deg, var(--gold), transparent 25%, var(--gold) 50%, transparent 75%);
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor; mask-composite:exclude; border-radius:var(--radius)
+    }
+    /* Sections */
+    section{padding:56px 24px}
+    h2{font-size:clamp(22px,2.8vw,30px); margin:0 0 18px}
+    .video{aspect-ratio:16/9; width:100%; border:0; border-radius:14px}
+    .cards{display:grid; grid-template-columns:repeat(12,1fr); gap:18px}
+    .cards .c{grid-column:span 4; min-height:140px; padding:18px}
+    @media (max-width:960px){.cards .c{grid-column:span 6}}
+    @media (max-width:640px){.cards .c{grid-column:span 12}}
+    .kpi{display:flex; align-items:center; justify-content:space-between}
+    .kpi b{font-size:28px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted); font-size:12px}
+    /* Gallery */
+    .gallery{display:grid; grid-template-columns:repeat(6,1fr); gap:10px}
+    .gallery img{width:100%; height:160px; object-fit:cover; border-radius:12px; filter:saturate(1.05) contrast(1.05)}
+    @media (max-width:960px){.gallery{grid-template-columns:repeat(3,1fr)} .gallery img{height:120px}}
+    /* Collab */
+    form{display:grid; gap:12px}
+    input, textarea{padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:#0b1117; color:var(--ink)}
+    input::placeholder, textarea::placeholder{color:#7f8b97}
+    .footer{padding:26px 24px; border-top:1px solid var(--line); color:var(--muted)}
+    .rws{opacity:.85}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="row wrap">
+      <div class="brand">
+        <span class="logo" aria-hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14c6 2 10-6 16-4"/>
+            <path d="M8 18c3-5 7-9 12-10"/>
+            <circle cx="9" cy="9" r="2.2"/>
+          </svg>
+        </span>
+        <span class="name">Greek Country Club Golf</span>
+        <span class="pill" title="Tagline">⛳️ <b>Chasing Par</b> · ΜΟΛΩΝ ΛΑΒΕ vibes</span>
+      </div>
+      <nav style="display:flex; gap:10px; align-items:center">
+        <a class="cta" href="#collab">Partner</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="grid">
+      <div>
+        <h1>Just a couple of malakas <span style="color:var(--gold)">chasing par</span>.</h1>
+        <p class="sub">Clips, course vlogs, and questionable decisions from the fairways. Tap in for YouTube rounds, TikTok bits, and Insta recaps.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://www.youtube.com/@GreekCountryClubGolf" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+          <a class="btn" href="https://www.tiktok.com/@gcc_golf" target="_blank" rel="noopener">TikTok</a>
+          <a class="btn" href="https://www.instagram.com/gcc.golf/" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn" href="https://linktr.ee/GCC_Golf" target="_blank" rel="noopener">All Links</a>
+        </div>
+        <div style="margin-top:16px" class="badge">New drops weekly · Subscribe</div>
+      </div>
+      <div class="card meander">
+        <iframe class="video" src="https://www.youtube.com/embed/?listType=user_uploads&list=GreekCountryClubGolf" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Latest from YouTube"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="wrap">
+    <h2>On the card</h2>
+    <div class="cards">
+      <div class="card c">
+        <div class="kpi"><span>Handicap (vibes)</span><b>+5 → 18</b></div>
+        <p class="muted">Depends on caffeine, wind, and how Greek the baklava was.</p>
+      </div>
+      <div class="card c">
+        <div class="kpi"><span>Favorite tracks</span><b>Grayhawk • Costa Navarino</b></div>
+        <p class="muted">Bucket-list routing, seaside wind, and fairways like marble.</p>
+      </div>
+      <div class="card c">
+        <div class="kpi"><span>Content mix</span><b>Clips · Vlogs · Memes</b></div>
+        <p class="muted">Shorts to long plays—whatever gets you out swinging.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY / FEED PLACEHOLDER -->
+  <section class="wrap">
+    <h2>Latest moments</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1521417531039-74a76d36e7bc?q=80&w=1200&auto=format&fit=crop" alt="Dusk over a links fairway"/>
+      <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=1200&auto=format&fit=crop" alt="Putting green close-up"/>
+      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop" alt="Driver at setup"/>
+      <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1200&auto=format&fit=crop" alt="Coastal golf"/>
+      <img src="https://images.unsplash.com/photo-1516275902201-49513b1e879e?q=80&w=1200&auto=format&fit=crop" alt="Ball in rough"/>
+      <img src="https://images.unsplash.com/photo-1519680772-8b5b0b4f0e8a?q=80&w=1200&auto=format&fit=crop" alt="Sunrise tee box"/>
+    </div>
+    <p class="muted" style="margin-top:10px">Swap these with live Instagram/TikTok thumbnails or a simple automation later.</p>
+  </section>
+
+  <!-- FEATURED TIKTOK -->
+  <section class="wrap">
+    <h2>TikTok spotlight</h2>
+    <div class="card" style="padding:0">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@gcc_golf" data-unique-id="gcc_golf" data-embed-from="embed_page" style="max-width: 780px; min-width: 320px; margin:auto">
+        <section>Loading TikToks…</section>
+      </blockquote>
+    </div>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="wrap">
+    <h2>About GCC</h2>
+    <div class="card" style="padding:20px">
+      <p>
+        We’re Greek Country Club Golf—two golf-obsessed friends filming the good shots, the bad lies, and everything in between. Expect fast edits, a little spice, and a lot of course-hunting.
+      </p>
+      <p class="muted">Michigan roots • Aegean soul • Country club etiquette* (*mostly)</p>
+    </div>
+  </section>
+
+  <!-- COLLAB / CONTACT -->
+  <section id="collab" class="wrap">
+    <h2>Partner with us</h2>
+    <div class="grid" style="gap:18px">
+      <div class="card" style="padding:20px">
+        <p>We collaborate with courses, golf brands, and travel partners. Tell us about your campaign—we’ll pitch concepts and deliverables (shorts, vlogs, photo sets, and more).</p>
+        <ul>
+          <li>Product features & UGC</li>
+          <li>Course vlogs & destination content</li>
+          <li>Giveaways & affiliate launch</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:20px">
+        <form action="https://formspree.io/f/your-id" method="POST">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <input type="text" name="brand" placeholder="Brand / Course">
+          <textarea name="message" rows="4" placeholder="What are you thinking? Dates, deliverables, budget range…"></textarea>
+          <button class="btn primary" type="submit">Send inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer wrap">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <small>© <span id="y"></span> Greek Country Club Golf</small>
+      <small class="rws">Website by Rochester Web Solutions</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
