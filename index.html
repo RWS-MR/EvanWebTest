@@ -5,144 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Greek Country Club Golf</title>
   <meta name="description" content="Greek Country Club Golf — just a couple of malakas chasing par. Watch clips, follow on socials, and partner for brand collabs." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0a0f14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ========== THEME ==========
-       Cleaner, continuous gradient + consistent spacing scale
-    */
+    /* ===== Theme & spacing ===== */
     :root{
-      --bg-1:#0a0f14;     /* deep night */
-      --bg-2:#0d1b26;     /* mid navy */
-      --bg-3:#081019;     /* anchor */
-      --panel:#0f171f;
-      --ink:#eaf2fb;
-      --muted:#96a6b6;
-      --aegean:#0f5d8f;
-      --olive:#6fa36f;
-      --gold:#d7b76e;
-      --line:#1c2732;
-
+      --bg-1:#0a0f14; --bg-2:#0d1b26; --bg-3:#081019;
+      --panel:#0f171f; --ink:#eaf2fb; --muted:#96a6b6;
+      --aegean:#0f5d8f; --olive:#6fa36f; --gold:#d7b76e; --line:#1c2732;
       --radius:18px;
-      --space-1:8px;
-      --space-2:12px;
-      --space-3:16px;
-      --space-4:20px;
-      --space-5:28px;
-      --space-6:40px;
-      --space-7:56px;
+      --space-1:8px; --space-2:12px; --space-3:16px; --space-4:20px;
+      --space-5:28px; --space-6:40px; --space-7:56px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
       --maxw:1200px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--ink);
-      line-height:1.6;
-      /* One continuous gradient using a fixed pseudo-element so it looks the same on mobile & desktop */
-      background:var(--bg-3);
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink); line-height:1.6; background:var(--bg-3);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
+    /* One continuous gradient, fixed, so mobile scroll doesn’t warp it */
     body::before{
-      content:"";
-      position:fixed; inset:0;
-      z-index:-1;
-      background:
-        linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
-      /* very subtle vignette for depth without banding */
-      box-shadow: inset 0 0 200px rgba(0,0,0,.35);
+      content:""; position:fixed; inset:0; z-index:-1;
+      background:linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+      box-shadow:inset 0 0 200px rgba(0,0,0,.35);
     }
-
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
-
     .wrap{max-width:var(--maxw); margin-inline:auto; padding:0 var(--space-4)}
     @media (min-width:1280px){ .wrap{padding:0} }
 
-    /* ========== NAV ========== */
-    .nav{position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(10px);
-         background:linear-gradient(to bottom, rgba(10,15,20,.92), rgba(10,15,20,.65));
-         border-bottom:1px solid var(--line)}
-    .nav .row{display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); padding:14px var(--space-5)}
+    /* ===== Nav (safe-area for notches) ===== */
+    .nav{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(to bottom, rgba(10,15,20,.92), rgba(10,15,20,.65));
+      border-bottom:1px solid var(--line);
+    }
+    .nav .row{
+      display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);
+      padding:calc(12px + env(safe-area-inset-top)) var(--space-5) 12px;
+    }
     .brand{display:flex; align-items:center; gap:var(--space-3)}
-    .logo{width:42px; height:42px; display:grid; place-items:center; border-radius:50%;
-          background:conic-gradient(from 0deg, var(--aegean), var(--olive));
-          box-shadow:inset 0 0 0 2px rgba(255,255,255,.06)}
+    .logo{
+      width:42px; height:42px; display:grid; place-items:center; border-radius:50%;
+      background:conic-gradient(from 0deg, var(--aegean), var(--olive));
+      box-shadow:inset 0 0 0 2px rgba(255,255,255,.06)
+    }
     .logo svg{width:22px; height:22px}
     .name{font-weight:800; letter-spacing:.2px}
-    .pill{display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border:1px solid var(--line);
-          border-radius:999px; color:var(--muted); font-size:13px}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px; padding:8px 12px;
+      border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:13px
+    }
     .pill b{color:var(--ink)}
-    .nav a.cta{padding:10px 14px; background:linear-gradient(135deg,var(--aegean),var(--olive));
-               border-radius:10px; font-weight:600}
+    .nav a.cta{
+      padding:12px 16px; min-height:44px; display:inline-flex; align-items:center;
+      background:linear-gradient(135deg,var(--aegean),var(--olive));
+      border-radius:12px; font-weight:600;
+    }
 
-    /* ========== GENERIC UI ========== */
-    h1{font-family:"Playfair Display",serif; font-size:clamp(34px,5vw,56px); line-height:1.1; margin:0 0 var(--space-2)}
-    h2{font-size:clamp(22px,2.8vw,30px); margin:0 0 var(--space-4); text-align:center}
-    .sub{font-size:clamp(16px,2.2vw,18px); color:var(--muted); max-width:62ch}
+    /* ===== Typography & common UI ===== */
+    h1{font-family:"Playfair Display",serif; font-size:clamp(30px,6vw,54px); line-height:1.12; margin:0 0 var(--space-2)}
+    h2{font-size:clamp(20px,4.5vw,28px); margin:0 0 var(--space-4); text-align:center}
+    .sub{font-size:clamp(15px,3.8vw,18px); color:var(--muted); max-width:62ch}
     .btns{display:flex; flex-wrap:wrap; gap:var(--space-2); margin-top:var(--space-3)}
-    .btn{padding:12px 16px; border-radius:12px; border:1px solid var(--line); display:inline-flex; align-items:center; gap:10px;
-         background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); font-weight:600}
+    .btn{
+      padding:12px 16px; border-radius:12px; border:1px solid var(--line);
+      display:inline-flex; align-items:center; gap:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); font-weight:600;
+      min-height:44px;
+    }
     .btn.primary{background:linear-gradient(135deg,var(--aegean),var(--olive)); border-color:transparent}
-    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid var(--line);
-           color:var(--muted); font-size:12px}
-
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-          border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
-
-    /* Subtle “Greek” accent border cleaned up for consistency */
+    .badge{
+      display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line); color:var(--muted); font-size:12px
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)
+    }
     .meander{position:relative; overflow:hidden; border-radius:var(--radius)}
     .meander:before{
       content:""; position:absolute; inset:-2px; padding:2px;
       background:conic-gradient(from 0deg, var(--gold), transparent 25%, var(--gold) 50%, transparent 75%);
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite:xor; mask-composite:exclude; border-radius:var(--radius); opacity:.6;
+      -webkit-mask-composite:xor; mask-composite:exclude; border-radius:var(--radius); opacity:.55;
     }
 
-    /* ========== LAYOUT SYSTEM ========== */
+    /* ===== Layout ===== */
     section{padding:var(--space-7) 0}
     .grid-hero{display:grid; gap:var(--space-5); align-items:center}
-    @media (min-width:960px){ .grid-hero{grid-template-columns:1.1fr .9fr} }
+    @media (min-width:960px){ .grid-hero{grid-template-columns:1.08fr .92fr} }
 
     .grid-2{display:grid; grid-template-columns:1fr; gap:var(--space-4)}
-    @media (min-width:960px){ .grid-2{grid-template-columns:1fr 1fr} }
+    @media (min-width:920px){ .grid-2{grid-template-columns:1fr 1fr} }
 
     .cards{display:grid; grid-template-columns:repeat(12,1fr); gap:var(--space-4)}
     .cards .c{grid-column:span 12; padding:var(--space-4); min-height:150px; display:flex; flex-direction:column; justify-content:space-between}
     @media (min-width:700px){ .cards .c{grid-column:span 6} }
     @media (min-width:1024px){ .cards .c{grid-column:span 4} }
-
     .kpi{display:flex; align-items:center; justify-content:space-between; gap:var(--space-3)}
     .kpi b{font-size:26px}
 
-    /* ========== MEDIA ========== */
+    /* ===== Media ===== */
     .video-wrap{aspect-ratio:16/9; width:100%; border-radius:14px; overflow:hidden}
     .video{width:100%; height:100%; border:0; display:block}
 
-    /* ========== GALLERY ========== */
+    /* ===== Gallery ===== */
     .gallery{display:grid; grid-template-columns:repeat(6,1fr); gap:10px}
     .gallery img{width:100%; height:160px; object-fit:cover; border-radius:12px; filter:saturate(1.05) contrast(1.05)}
     @media (max-width:960px){ .gallery{grid-template-columns:repeat(3,1fr)} .gallery img{height:120px} }
     @media (max-width:520px){ .gallery{grid-template-columns:repeat(2,1fr)} .gallery img{height:110px} }
 
-    /* ========== FORMS ========== */
+    /* Make buttons full-width on very small screens */
+    @media (max-width:520px){
+      .btns .btn{flex:1 1 100%; justify-content:center}
+      .pill{display:none} /* declutter nav on tiny screens */
+    }
+
+    /* ===== Forms ===== */
     form{display:grid; gap:var(--space-3)}
-    input, textarea{padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:#0b1117; color:var(--ink)}
+    input, textarea{
+      padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:#0b1117; color:var(--ink); font-size:16px; /* 16px prevents iOS zoom */
+    }
     input::placeholder, textarea::placeholder{color:#7f8b97}
     button[type="submit"].btn{cursor:pointer}
 
-    /* ========== FOOTER ========== */
-    .footer{padding:26px 0; border-top:1px solid var(--line); color:var(--muted)}
+    /* ===== Footer (safe-area bottom) ===== */
+    .footer{padding:26px 0 calc(26px + env(safe-area-inset-bottom)); border-top:1px solid var(--line); color:var(--muted)}
     .footer .row{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
     .rws{opacity:.85}
 
-    /* accessibility niceties */
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto}
-    }
+    /* motion respectful */
+    @media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto} }
+    /* iOS tap highlight */
+    *{-webkit-tap-highlight-color: rgba(255,255,255,0.05)}
   </style>
 </head>
 <body>
@@ -152,9 +154,7 @@
       <div class="brand">
         <span class="logo" aria-hidden>
           <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 14c6 2 10-6 16-4"/>
-            <path d="M8 18c3-5 7-9 12-10"/>
-            <circle cx="9" cy="9" r="2.2"/>
+            <path d="M4 14c6 2 10-6 16-4"/><path d="M8 18c3-5 7-9 12-10"/><circle cx="9" cy="9" r="2.2"/>
           </svg>
         </span>
         <span class="name">Greek Country Club Golf</span>
@@ -178,21 +178,23 @@
           <a class="btn" href="https://www.instagram.com/gcc.golf/" target="_blank" rel="noopener">Instagram</a>
           <a class="btn" href="https://linktr.ee/GCC_Golf" target="_blank" rel="noopener">All Links</a>
         </div>
-        <div style="margin-top:var(--space-2)" class="badge">New drops weekly · Subscribe</div>
+        <div class="badge" style="margin-top:var(--space-2)">New drops weekly · Subscribe</div>
       </div>
 
-      <!-- More reliable YouTube playlist embed (paste real UU... id) -->
+      <!-- YouTube uploads playlist (replace UU... id) -->
       <div class="card meander video-wrap">
         <iframe class="video"
           src="https://www.youtube.com/embed/videoseries?list=UU_REPLACE_WITH_UPLOADS_PLAYLIST_ID"
           title="Latest from YouTube"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen></iframe>
       </div>
     </div>
   </section>
 
-  <!-- “On the card” KPIs -->
+  <!-- KPIs -->
   <section class="wrap">
     <h2>On the card</h2>
     <div class="cards">
@@ -211,29 +213,40 @@
     </div>
   </section>
 
-  <!-- Gallery / Feed -->
+  <!-- Gallery -->
   <section class="wrap">
     <h2>Latest moments</h2>
     <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1521417531039-74a76d36e7bc?q=80&w=1200&auto=format&fit=crop" alt="Dusk over a links fairway"/>
-      <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=1200&auto=format&fit=crop" alt="Putting green close-up"/>
-      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop" alt="Driver at setup"/>
-      <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1200&auto=format&fit=crop" alt="Coastal golf"/>
-      <img src="https://images.unsplash.com/photo-1516275902201-49513b1e879e?q=80&w=1200&auto=format&fit=crop" alt="Ball in rough"/>
-      <img src="https://images.unsplash.com/photo-1519680772-8b5b0b4f0e8a?q=80&w=1200&auto=format&fit=crop" alt="Sunrise tee box"/>
+      <img loading="lazy" width="600" height="400" sizes="(max-width:520px) 50vw, (max-width:960px) 33vw, 16vw"
+           src="https://images.unsplash.com/photo-1521417531039-74a76d36e7bc?q=80&w=1200&auto=format&fit=crop"
+           alt="Dusk over a links fairway"/>
+      <img loading="lazy" width="600" height="400" sizes="(max-width:520px) 50vw, (max-width:960px) 33vw, 16vw"
+           src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=1200&auto=format&fit=crop"
+           alt="Putting green close-up"/>
+      <img loading="lazy" width="600" height="400" sizes="(max-width:520px) 50vw, (max-width:960px) 33vw, 16vw"
+           src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop"
+           alt="Driver at setup"/>
+      <img loading="lazy" width="600" height="400" sizes="(max-width:520px) 50vw, (max-width:960px) 33vw, 16vw"
+           src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1200&auto=format&fit=crop"
+           alt="Coastal golf"/>
+      <img loading="lazy" width="600" height="400" sizes="(max-width:520px) 50vw, (max-width:960px) 33vw, 16vw"
+           src="https://images.unsplash.com/photo-1516275902201-49513b1e879e?q=80&w=1200&auto=format&fit=crop"
+           alt="Ball in rough"/>
+      <img loading="lazy" width="600" height="400" sizes="(max-width:520px) 50vw, (max-width:960px) 33vw, 16vw"
+           src="https://images.unsplash.com/photo-1519680772-8b5b0b4f0e8a?q=80&w=1200&auto=format&fit=crop"
+           alt="Sunrise tee box"/>
     </div>
     <p class="muted" style="margin-top:10px; text-align:center">Swap these with live Instagram/TikTok thumbnails later.</p>
   </section>
 
-  <!-- TikTok spotlight -->
+  <!-- TikTok spotlight (lazy-load the script when visible) -->
   <section class="wrap">
     <h2>TikTok spotlight</h2>
     <div class="card" style="padding:0; overflow:hidden">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@gcc_golf" data-unique-id="gcc_golf" data-embed-from="embed_page" style="max-width: 780px; min-width: 320px; margin:auto">
+      <blockquote id="tt-embed" class="tiktok-embed" cite="https://www.tiktok.com/@gcc_golf" data-unique-id="gcc_golf" data-embed-from="embed_page" style="max-width: 780px; min-width: 320px; margin:auto">
         <section>Loading TikToks…</section>
       </blockquote>
     </div>
-    <script async src="https://www.tiktok.com/embed.js"></script>
     <p class="muted" style="margin-top:10px; text-align:center">Note: TikTok requires HTTPS and won’t render from a local file.</p>
   </section>
 
@@ -241,9 +254,7 @@
   <section class="wrap">
     <h2>About GCC</h2>
     <div class="card" style="padding:var(--space-4)">
-      <p>
-        We’re Greek Country Club Golf—two golf-obsessed friends filming the good shots, the bad lies, and everything in between. Expect fast edits, a little spice, and a lot of course-hunting.
-      </p>
+      <p>We’re Greek Country Club Golf—two golf-obsessed friends filming the good shots, the bad lies, and everything in between. Expect fast edits, a little spice, and a lot of course-hunting.</p>
       <p class="muted">Michigan roots • Aegean soul • Country club etiquette* (*mostly)</p>
     </div>
   </section>
@@ -284,7 +295,30 @@
   </footer>
 
   <script>
+    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Lazy-load TikTok script when the block enters viewport
+    (function(){
+      const el = document.getElementById('tt-embed');
+      if(!el) return;
+      const load = () => {
+        if(document.getElementById('tiktok-embed-js')) return;
+        const s = document.createElement('script');
+        s.src = 'https://www.tiktok.com/embed.js';
+        s.async = true;
+        s.id = 'tiktok-embed-js';
+        document.body.appendChild(s);
+      };
+      // if IntersectionObserver not supported, just load
+      if(!('IntersectionObserver' in window)){ load(); return; }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ load(); io.disconnect(); }
+        });
+      }, {rootMargin:'200px 0px'});
+      io.observe(el);
+    })();
   </script>
 </body>
 </html>
