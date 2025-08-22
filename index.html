@@ -51,12 +51,15 @@
       padding:calc(12px + env(safe-area-inset-top)) var(--space-5) 12px;
     }
     .brand{display:flex; align-items:center; gap:var(--space-3)}
-    .logo{
-      width:42px; height:42px; display:grid; place-items:center; border-radius:50%;
-      background:conic-gradient(from 0deg, var(--aegean), var(--olive));
-      box-shadow:inset 0 0 0 2px rgba(255,255,255,.06)
+    /* ====== PUT YOUR LOGO HERE ======
+       Replace the src below with your transparent logo path, e.g. "assets/gcc-logo.png"
+    */
+    .brand-logo{
+      width:42px; height:42px; object-fit:contain; display:block;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
     }
-    .logo svg{width:22px; height:22px}
+    @media (max-width:520px){ .brand-logo{width:38px; height:38px} }
+
     .name{font-weight:800; letter-spacing:.2px}
     .pill{
       display:inline-flex; align-items:center; gap:10px; padding:8px 12px;
@@ -103,6 +106,10 @@
 
     /* ===== Layout ===== */
     section{padding:calc(var(--space-7) + 10px) 0} /* slightly more vertical padding */
+
+    /* Extra breathing room between sticky header and the first hero title */
+    header + section { padding-top: calc(var(--space-7) + 42px); }
+
     .grid-hero{display:grid; gap:var(--space-5); align-items:center}
     @media (min-width:960px){ .grid-hero{grid-template-columns:1.08fr .92fr} }
     .grid-2{display:grid; grid-template-columns:1fr; gap:var(--space-4)}
@@ -149,11 +156,8 @@
   <header class="nav">
     <div class="row wrap">
       <div class="brand">
-        <span class="logo" aria-hidden>
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 14c6 2 10-6 16-4"/><path d="M8 18c3-5 7-9 12-10"/><circle cx="9" cy="9" r="2.2"/>
-          </svg>
-        </span>
+        <!-- ===== Replace the src with your logo file path ===== -->
+        <img class="brand-logo" src="gcc_logo.png" alt="GCC logo" />
         <span class="name">Greek Country Club Golf</span>
         <span class="pill">⛳️ <b>Chasing Par</b> · ΜΟΛΩΝ ΛΑΒΕ vibes</span>
       </div>
@@ -176,8 +180,9 @@
         <div class="badge" style="margin-top:var(--space-2)">New drops weekly · Subscribe</div>
       </div>
       <div class="card meander video-wrap">
+        <!-- Updated to your uploads playlist; autoplay enabled & muted for policy compliance -->
         <iframe class="video"
-          src="https://www.youtube.com/embed/videoseries?list=UU_REPLACE_WITH_UPLOADS_PLAYLIST_ID"
+          src="https://www.youtube.com/embed/videoseries?list=PLJ1QZA5x9t_zY7Hm5sM49o9pvxcxQ9eRT&autoplay=1&mute=1&rel=0"
           title="Latest from YouTube"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           loading="lazy"
