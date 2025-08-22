@@ -51,9 +51,7 @@
       padding:calc(12px + env(safe-area-inset-top)) var(--space-5) 12px;
     }
     .brand{display:flex; align-items:center; gap:var(--space-3)}
-    /* ====== PUT YOUR LOGO HERE ======
-       Replace the src below with your transparent logo path, e.g. "assets/gcc-logo.png"
-    */
+    /* Logo next to name */
     .brand-logo{
       width:42px; height:42px; object-fit:contain; display:block;
       filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
@@ -106,7 +104,6 @@
 
     /* ===== Layout ===== */
     section{padding:calc(var(--space-7) + 10px) 0} /* slightly more vertical padding */
-
     /* Extra breathing room between sticky header and the first hero title */
     header + section { padding-top: calc(var(--space-7) + 42px); }
 
@@ -156,8 +153,8 @@
   <header class="nav">
     <div class="row wrap">
       <div class="brand">
-        <!-- ===== Replace the src with your logo file path ===== -->
-        <img class="brand-logo" src="gcc_logo.png" alt="GCC logo" />
+        <!-- Put your logo file at: /assets/gcc_logo_transparent.png -->
+        <img class="brand-logo" src="assets/gcc_logo_transparent.png" alt="GCC logo" />
         <span class="name">Greek Country Club Golf</span>
         <span class="pill">⛳️ <b>Chasing Par</b> · ΜΟΛΩΝ ΛΑΒΕ vibes</span>
       </div>
@@ -180,7 +177,7 @@
         <div class="badge" style="margin-top:var(--space-2)">New drops weekly · Subscribe</div>
       </div>
       <div class="card meander video-wrap">
-        <!-- Updated to your uploads playlist; autoplay enabled & muted for policy compliance -->
+        <!-- Updated to your uploads playlist; autoplay enabled & muted -->
         <iframe class="video"
           src="https://www.youtube.com/embed/videoseries?list=PLJ1QZA5x9t_zY7Hm5sM49o9pvxcxQ9eRT&autoplay=1&mute=1&rel=0"
           title="Latest from YouTube"
