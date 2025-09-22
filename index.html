@@ -140,14 +140,16 @@
   <!-- TikTok -->
   <section class="wrap">
     <h2>TikTok spotlight</h2>
-    <div class="card" style="padding:16px; display:flex; justify-content:center; border-radius:var(--radius); overflow:hidden">
-      <blockquote 
-        class="tiktok-embed" 
-        cite="https://www.tiktok.com/@gcc_golf/video/7540339316480806175" 
-        data-video-id="7540339316480806175" 
-        style="max-width:400px; min-width:300px; margin:0 auto; border-radius:12px; overflow:hidden;">
-        <section></section>
-      </blockquote>
+    <div style="display:flex; justify-content:center">
+      <div class="card" style="padding:0; border-radius:var(--radius); overflow:hidden; display:inline-block">
+        <blockquote 
+          class="tiktok-embed" 
+          cite="https://www.tiktok.com/@gcc_golf/video/7540339316480806175" 
+          data-video-id="7540339316480806175" 
+          style="max-width:400px; min-width:300px; margin:0;">
+          <section></section>
+        </blockquote>
+      </div>
     </div>
     <script async src="https://www.tiktok.com/embed.js"></script>
   </section>
@@ -175,7 +177,11 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <small>© <span id="y"></span> Greek Country Club Golf · Website by Rochester Web Solutions</small>
+    <small>© <span id="y"></span> Greek Country Club Golf · 
+      <a href="https://rocwebsolutions.com" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; font-weight:600;">
+        Website by Rochester Web Solutions
+      </a>
+    </small>
   </footer>
 
   <script>
