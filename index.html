@@ -18,8 +18,6 @@
   <meta name="twitter:title" content="Greek Country Club Golf" />
   <meta name="twitter:description" content="Clips, course vlogs, and questionable decisions from the fairways." />
   <meta name="twitter:image" content="https://gccgolf.org/assets/gcc_logo_transparent.png" />
-  <!-- Google site verification -->
-  <meta name="google-site-verification" content="PUT_YOUR_GOOGLE_VERIFICATION_CODE_HERE" />
 
   <!-- Favicon -->
   <link rel="icon" href="assets/gcc_logo_transparent.png" type="image/png" />
@@ -58,6 +56,8 @@
 
     /* Hero */
     header + section { padding-top: calc(var(--space-7) + 42px); }
+    .grid-hero{display:grid; gap:var(--space-5); align-items:center}
+    @media (min-width:960px){ .grid-hero{grid-template-columns:1.08fr .92fr} }
     h1{font-family:"Playfair Display",serif; font-size:clamp(30px,6vw,54px); margin:0 0 12px}
     h2{text-align:center; font-size:clamp(20px,4.5vw,28px); margin:var(--space-6) 0 var(--space-4)}
     .sub{color:var(--muted)}
@@ -80,6 +80,13 @@
     /* Video */
     .video-wrap{aspect-ratio:16/9; border-radius:14px; overflow:hidden}
     .video{width:100%; height:100%; border:0}
+
+    /* Contact */
+    .grid-2{display:grid; grid-template-columns:1fr; gap:20px}
+    @media (min-width:920px){ .grid-2{grid-template-columns:1fr 1fr} }
+    form{display:grid; gap:12px}
+    input, textarea{padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:#0b1117; color:var(--ink); font-size:16px}
+    button.btn{cursor:pointer}
 
     /* Footer */
     .footer{padding:20px 0; border-top:1px solid var(--line); color:var(--muted); text-align:center}
@@ -133,8 +140,10 @@
   <!-- TikTok -->
   <section class="wrap">
     <h2>TikTok spotlight</h2>
-    <div class="card">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@gcc_golf" data-unique-id="gcc_golf" style="max-width: 780px; min-width: 320px; margin:auto"><section>Loading TikToks…</section></blockquote>
+    <div class="card" style="padding:0; overflow:hidden">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@gcc_golf" data-unique-id="gcc_golf" style="max-width: 780px; min-width: 320px; margin:auto">
+        <section>Loading TikToks…</section>
+      </blockquote>
     </div>
     <script async src="https://www.tiktok.com/embed.js"></script>
   </section>
@@ -142,14 +151,20 @@
   <!-- Collab -->
   <section id="collab" class="wrap">
     <h2>Partner with us</h2>
-    <div class="card" style="padding:20px">
-      <form id="collabForm" action="https://formspree.io/f/xkgvdvwa" method="POST">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <input type="text" name="brand" placeholder="Brand / Course">
-        <textarea name="message" rows="4" placeholder="What are you thinking?"></textarea>
-        <button class="btn primary" type="submit">Send inquiry</button>
-      </form>
+    <div class="grid-2">
+      <div class="card" style="padding:20px">
+        <p>We collaborate with courses, golf brands, and travel partners. Tell us about your campaign—we’ll pitch concepts and deliverables (shorts, vlogs, photo sets, and more).</p>
+        <ul><li>Product features &amp; UGC</li><li>Course vlogs &amp; destination content</li><li>Giveaways &amp; affiliate launch</li></ul>
+      </div>
+      <div class="card" style="padding:20px">
+        <form id="collabForm" action="https://formspree.io/f/xkgvdvwa" method="POST">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <input type="text" name="brand" placeholder="Brand / Course">
+          <textarea name="message" rows="4" placeholder="What are you thinking?"></textarea>
+          <button class="btn primary" type="submit">Send inquiry</button>
+        </form>
+      </div>
     </div>
   </section>
 
