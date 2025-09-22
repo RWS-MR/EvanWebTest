@@ -6,146 +6,83 @@
   <title>Greek Country Club Golf</title>
   <meta name="description" content="Greek Country Club Golf — just a couple of malakas chasing par. Watch clips, follow on socials, and partner for brand collabs." />
   <meta name="theme-color" content="#0a0f14" />
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Greek Country Club Golf" />
+  <meta property="og:description" content="Clips, course vlogs, and questionable decisions from the fairways." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gccgolf.org/" />
+  <meta property="og:image" content="https://gccgolf.org/assets/gcc_logo_transparent.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Greek Country Club Golf" />
+  <meta name="twitter:description" content="Clips, course vlogs, and questionable decisions from the fairways." />
+  <meta name="twitter:image" content="https://gccgolf.org/assets/gcc_logo_transparent.png" />
+  <!-- Google site verification -->
+  <meta name="google-site-verification" content="PUT_YOUR_GOOGLE_VERIFICATION_CODE_HERE" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/gcc_logo_transparent.png" type="image/png" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* ===== Theme & spacing ===== */
     :root{
       --bg-1:#0a0f14; --bg-2:#0d1b26; --bg-3:#081019;
       --panel:#0f171f; --ink:#eaf2fb; --muted:#96a6b6;
       --aegean:#0f5d8f; --olive:#6fa36f; --gold:#d7b76e; --line:#1c2732;
       --radius:18px;
-      --space-1:8px; --space-2:12px; --space-3:16px; --space-4:20px;
-      --space-5:28px; --space-6:40px; --space-7:56px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --maxw:1200px;
+      --space-4:20px; --space-5:28px; --space-6:40px; --space-7:56px;
+      --shadow:0 10px 30px rgba(0,0,0,.35); --maxw:1200px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--ink); line-height:1.6; background:var(--bg-3);
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    /* One continuous gradient, fixed */
-    body::before{
-      content:""; position:fixed; inset:0; z-index:-1;
-      background:linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
-      box-shadow:inset 0 0 200px rgba(0,0,0,.35);
-    }
+    body{margin:0; font-family:Inter, sans-serif; color:var(--ink); line-height:1.6; background:var(--bg-3);}
+    body::before{content:""; position:fixed; inset:0; z-index:-1;
+      background:linear-gradient(180deg, var(--bg-1), var(--bg-2) 50%, var(--bg-3));}
+
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
     .wrap{max-width:var(--maxw); margin-inline:auto; padding:0 var(--space-4)}
-    @media (min-width:1280px){ .wrap{padding:0} }
 
-    /* ===== Nav ===== */
-    .nav{
-      position:sticky; top:0; z-index:40;
-      backdrop-filter:saturate(140%) blur(10px);
-      background:linear-gradient(to bottom, rgba(10,15,20,.92), rgba(10,15,20,.65));
-      border-bottom:1px solid var(--line);
-    }
-    .nav .row{
-      display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);
-      padding:calc(12px + env(safe-area-inset-top)) var(--space-5) 12px;
-    }
-    .brand{display:flex; align-items:center; gap:var(--space-3)}
-    /* Logo next to name */
-    .brand-logo{
-      width:42px; height:42px; object-fit:contain; display:block;
-      filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
-    }
-    @media (max-width:520px){ .brand-logo{width:38px; height:38px} }
+    /* NAV */
+    .nav{position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(10,15,20,.9); border-bottom:1px solid var(--line);}
+    .nav .row{display:flex; align-items:center; justify-content:space-between; gap:20px; padding:16px var(--space-5);}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand-logo{width:40px; height:40px; object-fit:contain}
+    .name{font-weight:800;}
+    .nav a.cta{padding:12px 16px; background:linear-gradient(135deg,var(--aegean),var(--olive)); border-radius:12px; font-weight:600}
 
-    .name{font-weight:800; letter-spacing:.2px}
-    .pill{
-      display:inline-flex; align-items:center; gap:10px; padding:8px 12px;
-      border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:13px
-    }
-    .pill b{color:var(--ink)}
-    .nav a.cta{
-      padding:12px 16px; min-height:44px; display:inline-flex; align-items:center;
-      background:linear-gradient(135deg,var(--aegean),var(--olive));
-      border-radius:12px; font-weight:600;
-    }
-
-    /* ===== Typography & section titles ===== */
-    h1{font-family:"Playfair Display",serif; font-size:clamp(30px,6vw,54px); line-height:1.12; margin:0 0 var(--space-2)}
-    h2{
-      font-size:clamp(20px,4.5vw,28px);
-      margin: var(--space-6) 0 var(--space-4); /* more breathing room */
-      text-align:center;
-    }
-    .sub{font-size:clamp(15px,3.8vw,18px); color:var(--muted); max-width:62ch}
-    .btns{display:flex; flex-wrap:wrap; gap:var(--space-2); margin-top:var(--space-3)}
-    .btn{
-      padding:12px 16px; border-radius:12px; border:1px solid var(--line);
-      display:inline-flex; align-items:center; gap:10px;
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); font-weight:600;
-      min-height:44px;
-    }
-    .btn.primary{background:linear-gradient(135deg,var(--aegean),var(--olive)); border-color:transparent}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px;
-      border:1px solid var(--line); color:var(--muted); font-size:12px
-    }
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)
-    }
-    .meander{position:relative; overflow:hidden; border-radius:var(--radius)}
-    .meander:before{
-      content:""; position:absolute; inset:-2px; padding:2px;
-      background:conic-gradient(from 0deg, var(--gold), transparent 25%, var(--gold) 50%, transparent 75%);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite:xor; mask-composite:exclude; border-radius:var(--radius); opacity:.55;
-    }
-
-    /* ===== Layout ===== */
-    section{padding:calc(var(--space-7) + 10px) 0} /* slightly more vertical padding */
-    /* Extra breathing room between sticky header and the first hero title */
+    /* Hero */
     header + section { padding-top: calc(var(--space-7) + 42px); }
+    h1{font-family:"Playfair Display",serif; font-size:clamp(30px,6vw,54px); margin:0 0 12px}
+    h2{text-align:center; font-size:clamp(20px,4.5vw,28px); margin:var(--space-6) 0 var(--space-4)}
+    .sub{color:var(--muted)}
+    .btns{display:flex; flex-wrap:wrap; gap:12px; margin-top:20px}
+    .btn{padding:12px 16px; border-radius:12px; border:1px solid var(--line); font-weight:600}
+    .btn.primary{background:linear-gradient(135deg,var(--aegean),var(--olive)); border:none}
 
-    .grid-hero{display:grid; gap:var(--space-5); align-items:center}
-    @media (min-width:960px){ .grid-hero{grid-template-columns:1.08fr .92fr} }
-    .grid-2{display:grid; grid-template-columns:1fr; gap:var(--space-4)}
-    @media (min-width:920px){ .grid-2{grid-template-columns:1fr 1fr} }
-    .cards{display:grid; grid-template-columns:repeat(12,1fr); gap:var(--space-4)}
-    .cards .c{grid-column:span 12; padding:var(--space-4); min-height:150px; display:flex; flex-direction:column; justify-content:space-between}
-    @media (min-width:700px){ .cards .c{grid-column:span 6} }
-    @media (min-width:1024px){ .cards .c{grid-column:span 4} }
-    .kpi{display:flex; align-items:center; justify-content:space-between; gap:var(--space-3)}
-    .kpi b{font-size:26px}
+    /* Cards */
+    .card{background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
 
-    /* ===== Media ===== */
-    .video-wrap{aspect-ratio:16/9; width:100%; border-radius:14px; overflow:hidden}
-    .video{width:100%; height:100%; border:0; display:block}
+    /* Gallery links */
+    .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px}
+    .gallery a{position:relative; overflow:hidden; border-radius:12px; display:block}
+    .gallery img{width:100%; height:160px; object-fit:cover; transition:transform .3s ease}
+    .gallery a::after{content:"▶"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+      font-size:40px; color:white; background:rgba(0,0,0,.35); opacity:0; transition:.3s}
+    .gallery a:hover img{transform:scale(1.08)}
+    .gallery a:hover::after{opacity:1}
 
-    /* ===== Gallery ===== */
-    .gallery{display:grid; grid-template-columns:repeat(6,1fr); gap:10px}
-    .gallery img{width:100%; height:160px; object-fit:cover; border-radius:12px; filter:saturate(1.05) contrast(1.05)}
-    @media (max-width:960px){ .gallery{grid-template-columns:repeat(3,1fr)} .gallery img{height:120px} }
-    @media (max-width:520px){ .gallery{grid-template-columns:repeat(2,1fr)} .gallery img{height:110px} }
+    /* Video */
+    .video-wrap{aspect-ratio:16/9; border-radius:14px; overflow:hidden}
+    .video{width:100%; height:100%; border:0}
 
-    /* Small-screen tweaks */
-    @media (max-width:520px){
-      .btns .btn{flex:1 1 100%; justify-content:center}
-      .pill{display:none}
-    }
-
-    /* ===== Forms ===== */
-    form{display:grid; gap:var(--space-3)}
-    input, textarea{
-      padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:#0b1117; color:var(--ink); font-size:16px;
-    }
-    input::placeholder, textarea::placeholder{color:#7f8b97}
-    button[type="submit"].btn{cursor:pointer}
-
-    /* ===== Footer ===== */
-    .footer{padding:26px 0 calc(26px + env(safe-area-inset-bottom)); border-top:1px solid var(--line); color:var(--muted)}
-    .footer .row{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
-    .rws{opacity:.85}
+    /* Footer */
+    .footer{padding:20px 0; border-top:1px solid var(--line); color:var(--muted); text-align:center}
   </style>
 </head>
 <body>
@@ -153,10 +90,8 @@
   <header class="nav">
     <div class="row wrap">
       <div class="brand">
-        <!-- Put your logo file at: /assets/gcc_logo_transparent.png -->
         <img class="brand-logo" src="assets/gcc_logo_transparent.png" alt="GCC logo" />
         <span class="name">Greek Country Club Golf</span>
-        <span class="pill">⛳️ <b>Chasing Par</b> · ΜΟΛΩΝ ΛΑΒΕ </span>
       </div>
       <nav><a class="cta" href="#collab">Partner</a></nav>
     </div>
@@ -169,32 +104,17 @@
         <h1>Just a couple of malakas <span style="color:var(--gold)">chasing par</span>.</h1>
         <p class="sub">Clips, course vlogs, and questionable decisions from the fairways. Tap in for YouTube rounds, TikTok bits, and Insta recaps.</p>
         <div class="btns">
-          <a class="btn primary" href="https://www.youtube.com/@GreekCountryClubGolf" target="_blank" rel="noopener">▶ Watch on YouTube</a>
-          <a class="btn" href="https://www.tiktok.com/@gcc_golf" target="_blank" rel="noopener">TikTok</a>
-          <a class="btn" href="https://www.instagram.com/gcc.golf/" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn" href="https://linktr.ee/GCC_Golf" target="_blank" rel="noopener">All Links</a>
+          <a class="btn primary" href="https://www.youtube.com/@GreekCountryClubGolf" target="_blank">▶ Watch on YouTube</a>
+          <a class="btn" href="https://www.tiktok.com/@gcc_golf" target="_blank">TikTok</a>
+          <a class="btn" href="https://www.instagram.com/gcc.golf/" target="_blank">Instagram</a>
         </div>
-        <div class="badge" style="margin-top:var(--space-2)">New drops weekly · Subscribe</div>
       </div>
-      <div class="card meander video-wrap">
-        <!-- Updated to your uploads playlist; autoplay enabled & muted -->
+      <div class="card video-wrap">
         <iframe class="video"
-          src="https://www.youtube.com/watch?v=DK0S2o_lKl4&list=PL-4NxklAc_Frodsz5QzRldigtyRU12SY2"
-          title="Latest from YouTube"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          loading="lazy"
+          src="https://www.youtube.com/embed/videoseries?list=PL-4NxklAc_Frodsz5QzRldigtyRU12SY2&autoplay=1&mute=1&rel=0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
-    </div>
-  </section>
-
-  <!-- KPIs -->
-  <section class="wrap">
-    <h2>On the card</h2>
-    <div class="cards">
-      <div class="card c"><div class="kpi"><span>Current Handicap</span><b>+5 → 18</b></div><p class="muted">Depends on caffeine, wind, and how Greek the spanakopita was.</p></div>
-      <div class="card c"><div class="kpi"><span>Favorite course(s)</span><b>Fox Lake Country Club</b></div><p class="muted">Hidden Gem of the Midwest, Fox Lake Country Club has everything you want and more. Find them at www.foxlakecc.com</p></div>
-      <div class="card c"><div class="kpi"><span>Content mix</span><b>Clips · Vlogs · Memes</b></div><p class="muted">Shorts to long plays — whatever gets you out swinging.</p></div>
     </div>
   </section>
 
@@ -202,63 +122,54 @@
   <section class="wrap">
     <h2>Latest moments</h2>
     <div class="gallery">
-      <img loading="lazy" src="img/1.png" alt="Dusk over a links fairway"/>
-      <img loading="lazy" src="img/2.png" alt="Putting green close-up"/>
-      <img loading="lazy" src="img/3.png" alt="Driver at setup"/>
-      <img loading="lazy" src="img/4.png" alt="Coastal golf"/>
-      <img loading="lazy" src="img/5.png" alt="Ball in rough"/>
-      <img loading="lazy" src="assets/gcc_logo_transparent.png" alt="Sunrise tee box"/>
+      <a href="https://www.youtube.com/watch?v=DK0S2o_lKl4&t=2s" target="_blank"><img src="img/1.png" alt="Moment 1"></a>
+      <a href="https://www.youtube.com/watch?v=u_VGWcYKhAU" target="_blank"><img src="img/2.png" alt="Moment 2"></a>
+      <a href="https://www.youtube.com/watch?v=E3OWYxXvYmE" target="_blank"><img src="img/3.png" alt="Moment 3"></a>
+      <a href="https://www.youtube.com/watch?v=FyJrcdX20qk" target="_blank"><img src="img/4.png" alt="Moment 4"></a>
+      <a href="https://www.youtube.com/watch?v=DEU_RBjxLfs&t=2s" target="_blank"><img src="img/5.png" alt="Moment 5"></a>
     </div>
   </section>
 
   <!-- TikTok -->
   <section class="wrap">
     <h2>TikTok spotlight</h2>
-    <div class="card" style="padding:0; overflow:hidden">
+    <div class="card">
       <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@gcc_golf" data-unique-id="gcc_golf" style="max-width: 780px; min-width: 320px; margin:auto"><section>Loading TikToks…</section></blockquote>
     </div>
     <script async src="https://www.tiktok.com/embed.js"></script>
   </section>
 
-  <!-- About -->
-  <section class="wrap">
-    <h2>About GCC</h2>
-    <div class="card" style="padding:var(--space-4)">
-      <p>Greek Country Club Golf (GCC) built by a couple of Greek hacks who love the game a little too much, it's concerning... From breaking 90 and 80 to chasing birdies and fixing swings, our goal is to have some fun and keep the people entertained by our slices along the way.</p>
-      <p class="muted">Chicago roots • Aegean soul • Country club etiquette (mostly)</p>
-    </div>
-  </section>
-
   <!-- Collab -->
   <section id="collab" class="wrap">
     <h2>Partner with us</h2>
-    <div class="grid-2">
-      <div class="card" style="padding:var(--space-4)">
-        <p>We collaborate with courses, golf brands, and travel partners. Tell us about your campaign—we’ll pitch concepts and deliverables (shorts, vlogs, photo sets, and more).</p>
-        <ul><li>Product features &amp; UGC</li><li>Course vlogs &amp; destination content</li><li>Giveaways &amp; affiliate launch</li></ul>
-      </div>
-      <div class="card" style="padding:var(--space-4)">
-        <form action="https://formspree.io/f/xkgvdvwa" method="POST">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Your email" required>
-          <input type="text" name="brand" placeholder="Brand / Course">
-          <textarea name="message" rows="4" placeholder="What are you thinking? Dates, deliverables, budget range…"></textarea>
-          <button class="btn primary" type="submit">Send inquiry</button>
-        </form>
-      </div>
+    <div class="card" style="padding:20px">
+      <form id="collabForm" action="https://formspree.io/f/xkgvdvwa" method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <input type="text" name="brand" placeholder="Brand / Course">
+        <textarea name="message" rows="4" placeholder="What are you thinking?"></textarea>
+        <button class="btn primary" type="submit">Send inquiry</button>
+      </form>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="footer">
-    <div class="wrap">
-      <div class="row">
-        <small>© <span id="y"></span> Greek Country Club Golf</small>
-        <small class="rws">Website by Rochester Web Solutions</small>
-      </div>
-    </div>
+    <small>© <span id="y"></span> Greek Country Club Golf · Website by Rochester Web Solutions</small>
   </footer>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Clear form after submit
+    const form = document.getElementById('collabForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' }});
+      form.reset();
+      alert('Thanks! Your message has been sent.');
+    });
+  </script>
 </body>
 </html>
