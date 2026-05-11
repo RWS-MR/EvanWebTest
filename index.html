@@ -88,6 +88,26 @@
     input, textarea{padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:#0b1117; color:var(--ink); font-size:16px}
     button.btn{cursor:pointer}
 
+
+
+    /* Sponsors */
+    .sponsors-intro{max-width:720px; margin:0 auto var(--space-4); text-align:center; color:var(--muted)}
+    .sponsor-grid{display:grid; grid-template-columns:1fr; gap:16px}
+    @media (min-width:860px){ .sponsor-grid{grid-template-columns:repeat(3,1fr)} }
+    .sponsor-card{display:flex; flex-direction:column; min-height:100%; overflow:hidden; transition:transform .25s ease, border-color .25s ease, background .25s ease}
+    .sponsor-card:hover{transform:translateY(-4px); border-color:rgba(215,183,110,.55); background:rgba(255,255,255,.06)}
+    .sponsor-visual{height:170px; display:flex; align-items:center; justify-content:center; padding:20px; border-bottom:1px solid var(--line); text-align:center; position:relative; overflow:hidden}
+    .sponsor-visual::before{content:""; position:absolute; inset:-40%; opacity:.35; background:radial-gradient(circle, rgba(215,183,110,.45), transparent 55%)}
+    .sponsor-visual span{position:relative; z-index:1; font-family:"Playfair Display",serif; font-size:clamp(24px,3vw,34px); font-weight:700; letter-spacing:.02em}
+    .sponsor-visual.scratch{background:linear-gradient(135deg,#07141f,#0f5d8f 120%)}
+    .sponsor-visual.caddy{background:linear-gradient(135deg,#08130c,#6fa36f 120%)}
+    .sponsor-visual.deolax{background:linear-gradient(135deg,#050607,#2b3138 120%)}
+    .sponsor-body{padding:20px; display:flex; flex-direction:column; flex:1}
+    .sponsor-tag{width:max-content; margin:0 0 10px; padding:5px 9px; border:1px solid rgba(215,183,110,.35); border-radius:999px; color:var(--gold); font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase}
+    .sponsor-body h3{margin:0 0 8px; font-size:20px}
+    .sponsor-body p{margin:0 0 18px; color:var(--muted)}
+    .sponsor-link{margin-top:auto; color:var(--ink); font-weight:800}
+
     /* Footer */
     .footer{padding:20px 0; border-top:1px solid var(--line); color:var(--muted); text-align:center}
   </style>
@@ -152,6 +172,54 @@
       </div>
     </div>
     <script async src="https://www.tiktok.com/embed.js"></script>
+  </section>
+
+
+  <!-- Sponsors -->
+  <section class="wrap" id="sponsors">
+    <h2>Brands we’re rocking with</h2>
+    <p class="sponsors-intro">A few golf products, fits, and tools we’ve been checking out on and off the course.</p>
+    <div class="sponsor-grid">
+      <a class="card sponsor-card" href="https://www.instagram.com/scratchaicaddy/" target="_blank" rel="noopener sponsored">
+        <div class="sponsor-visual scratch">
+          <img src="img/ScratchAI.jpg" alt="Scratch AI logo">
+        </div>
+
+        <div class="sponsor-body">
+          <p class="sponsor-tag">AI Golf Tool</p>
+          <h3>Scratch AI</h3>
+          <p>Smarter practice, cleaner feedback, and a better way to understand your golf game.</p>
+          <span class="sponsor-link">Check out Scratch AI →</span>
+        </div>
+      </a>
+
+
+      <a class="card sponsor-card" href="https://caddysplash.com/?snowball=FKZJM1221&utm_campaign=FKZJM1221&utm_content=link_in_bio&utm_medium=tier-1-content-creators&utm_source=snowball&_su_rec=sNRiENWF_p6i4TTkjpEz3dFCN3xPf6lmfOO9RvRfLO1cQQ_NvyEmaJUbyzGPRLK93lKczFUSyNE4hHiBi7sSqz3qYRFK4RNrRIcTBbNNtbWcTs9CBnQIAQDK5MZdnco42reVy7CasNm4xevumGs5g2W1hZnKlOiDaToO-sEJhKNih0-YNX5BUWACKFyxV1Mdhy2xTT79ztVRiTcsHbirOMAKjT3zhBHlTr7iMHyIUgmwE9jCaMQUQozXU-oOdni4GQ&_su_rec_id=1593465f-8dc8-43bf-bcda-6803df3d7003-1778279399" target="_blank" rel="noopener sponsored">
+        <div class="sponsor-visual scratch">
+          <img src="img/caddys.jpg" alt="Scratch AI logo">
+        </div>
+
+        <div class="sponsor-body">
+          <p class="sponsor-tag">Golf Gear</p>
+          <h3>Caddy Splash</h3>
+          <p>Keep the grooves clean, the clubs fresh, and the short game dialed in.</p>
+          <span class="sponsor-link">Shop Caddy Splash →</span>
+        </div>
+      </a>
+
+      <a class="card sponsor-card" href="https://www.deolax.com/?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=W8GS5V03DEXJ&utm_source=Evan-Anastasiou&utm_medium=W8GS5V03DEXJ&utm_campaign=gccgolf&utm_content=link_in_bio" target="_blank" rel="noopener sponsored">
+        <div class="sponsor-visual scratch">
+          <img src="img/deolax.jpg" alt="Scratch AI logo">
+        </div>
+
+        <div class="sponsor-body">
+          <p class="sponsor-tag">Golf Apparel</p>
+          <h3>Deolax</h3>
+          <p>Golf apparel that works for the course, the cart, and the post-round spot.</p>
+          <span class="sponsor-link">Shop Deolax →</span>
+        </div>
+      </a>
+    </div>
   </section>
 
 
